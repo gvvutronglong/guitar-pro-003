@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trang phát nhạc mẫu</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #f2f2f2, #e0eafc);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+    audio {
+      width: 90%;
+      max-width: 500px;
+      margin-top: 10px;
+    }
+    .note {
+      margin-top: 12px;
+      font-size: 0.9rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>Đang phát: Go Tell Aunt Rhody</h1>
+  <audio id="player" controls autoplay loop>
+    <source src="https://docs.google.com/uc?export=open&id=1QemVEXHopZ5M8jZaOjuFEn-vAvzbuF4m" type="audio/mp3">
+    Trình duyệt của bạn không hỗ trợ phát âm thanh.
+  </audio>
+  <div class="note">Bản nhạc sẽ tự động lặp lại và phát nền nếu trình duyệt hỗ trợ.</div>
+
+  <script>
+    const player = document.getElementById("player");
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden && player.paused) {
+        player.play();
+      }
+    });
+  </script>
+</body>
+</html>
